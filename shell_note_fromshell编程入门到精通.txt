@@ -5,7 +5,42 @@ p4
 *************************************
 3.2function
 
-type  查看命令的类型
+type  查看命令的类型  p51-52
+
+function funcname ()
+{
+ shell commands
+}
+
+ funcname ()
+{
+ shell commands
+}
+
+unset -f funcname  和删除变量一样
+
+
+深度linux 没有 who的 好怪呢 
+
+
+登录function eg 
+root@centos ~]# cat 2
+#!/bin/bash
+function login_user ()
+{
+if  who | grep $1 >/dev/null
+then
+	echo "user $1 is on"
+else
+	echo "user $1 is off"
+fi
+}
+[root@centos ~]# . 2
+[root@centos ~]# login_user root
+user root is on
+[root@centos ~]# login_user evan
+user evan is off
+
 
  
 
