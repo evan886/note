@@ -1,0 +1,87 @@
+source 执行脚本  工作目录会被改变  因为不会创建子进程，而是在父进程中直接执行  p5
+p4
+
+
+p61
+
+*************************************
+for 
+
+for name [in list]
+do 
+....
+done
+
+
+
+#!/bin/bash
+for loop in `find . -iname "*.mp3"`
+do
+mpg321   $loop
+done
+
+#!/bin/bash
+for loop in *.mp3
+do
+mpg123   $loop
+done
+
+
+# mark
+`` 执行反单号之间的命令，引用结果作为字符串
+
+in list 如果没有，默认为 in "$@"
+
+eg ./a s.mp3   播放这 song 
+***********************************
+
+#$@ 也就是  $1 $2 $3 从参数1开始
+#$#参数数量，不包含参数 0
+
+
+p62 
+while / until 这个是直到型号（除非‘’‘ 我们才不做’‘’‘）
+
+while condition
+do 
+  statements
+done
+
+until condition 
+do
+ statements
+done
+
+
+
+#!/bin/bash
+path=$PATH
+
+while [ -n $path ];
+do
+	ls -ld ${path%%:*}
+	path=${path#*:}
+done
+
+
+
+跳出循环 
+
+
+#!/bin/bash
+path=$PATH
+
+while [ -n $path ];
+do
+if [ -z $path ]
+	then
+		break  #如果 path为空(""),exit 出循环
+fi
+	ls -ld ${path%%:*}
+	path=${path#*:}
+done
+
+
+
+
+
